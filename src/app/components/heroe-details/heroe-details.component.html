@@ -1,0 +1,20 @@
+<h1 class="animated fadeIn">{{heroe.name | uppercase}} <small>({{heroe.appearance | date: 'y'}})</small></h1>
+<hr>
+
+<div class="row">
+    <div class="col-md-4">
+        <img class="img-fluid" [src]="heroe.img" [alt]="heroe.name">
+        <br><br>
+        <a style="width: 100%;" [routerLink]="['..']" class="btn btn-outline-danger">Back...</a>
+    </div>
+
+    <div class="col-md-8">
+        <h3>{{heroe.name}}</h3>
+        <hr>
+        <p>{{heroe.bio}}</p>
+        <div>
+            <img style="height: 200px;" [src]="getImageSrc(heroe.home)" [alt]="heroe.home + ' logo'">
+        </div>
+    </div>
+
+</div>

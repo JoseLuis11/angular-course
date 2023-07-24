@@ -63,4 +63,12 @@ export class HeroesService {
     getHeroes(): Heroe[] {
         return this.heroes;
     }
+
+    getHeroe(idx: number): Heroe {
+        return this.heroes[idx]
+    }
+
+    searchHeroes(searchTerm: string): Heroe[] {
+        return this.heroes.filter(heroe => heroe.name.toLowerCase().includes(searchTerm.toLowerCase()))
+    }
 }
