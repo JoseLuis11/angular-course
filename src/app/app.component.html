@@ -14,6 +14,11 @@
                 </thead>
                 <tbody>
                     <tr>
+                        <td>{{name2}}</td>
+                        <td>capitalized</td>
+                        <td>{{name2 | capitalized:true}}</td>
+                    </tr>
+                    <tr>
                         <td>{{name}}</td>
                         <td>uppercase</td>
                         <td>{{name | uppercase}}</td>
@@ -40,22 +45,17 @@
                     </tr>
                     <tr>
                         <td>{{PI}}</td>
-                        <td>number</td>
+                        <td>number:'3.0-0'</td>
                         <td>{{PI | number:'3.0-0'}}</td>
                     </tr>
                     <tr>
                         <td>{{PI}}</td>
-                        <td>number</td>
+                        <td>number:'1.0-0'</td>
                         <td>{{PI | number:'1.0-0'}}</td>
                     </tr>
                     <tr>
                         <td>{{PI}}</td>
-                        <td>number</td>
-                        <td>{{PI | number:'.0-2'}}</td>
-                    </tr>
-                    <tr>
-                        <td>{{PI}}</td>
-                        <td>number</td>
+                        <td>number:'.0-2'</td>
                         <td>{{PI | number:'.0-2'}}</td>
                     </tr>
                     <tr>
@@ -65,8 +65,69 @@
                     </tr>
                     <tr>
                         <td>{{percentage}}</td>
-                        <td>percent</td>
+                        <td>percent:'2.2-2'</td>
                         <td>{{percentage | percent:'2.2-2'}}</td>
+                    </tr>
+                    <tr>
+                        <td>{{salary}}</td>
+                        <td>currency</td>
+                        <td>{{salary | currency}}</td>
+                    </tr>
+                    <tr>
+                        <td>{{salary}}</td>
+                        <td>currency:'EUR'</td>
+                        <td>{{salary | currency:'EUR'}}</td>
+                    </tr>
+                    <tr>
+                        <td>{{salary}}</td>
+                        <td>currency:'CAD':'symbol':'.0-0'</td>
+                        <td>{{salary | currency:'LMP ':'symbol-narrow':'.0-0'}}</td>
+                    </tr>
+                    <tr>
+                        <td>{{promise}}</td>
+                        <td>async</td>
+                        <td>{{promise | async}}</td>
+                    </tr>
+                    <tr>
+                        <td>{{date}}</td>
+                        <td>date</td>
+                        <td>{{date | date}}</td>
+                    </tr>
+                    <tr>
+                        <td>{{date}}</td>
+                        <td>date:'medium'</td>
+                        <td>{{date | date:'medium'}}</td>
+                    </tr>
+                    <tr>
+                        <td>{{date}}</td>
+                        <td>date:'short'</td>
+                        <td>{{date | date:'short'}}</td>
+                    </tr>
+                    <tr>
+                        <td>{{date}}</td>
+                        <td>date:'MMMM - dd'</td>
+                        <td>{{date | date:'MMMM - dd'}}</td>
+                    </tr>
+                    <tr>
+                        <td>{{date}}</td>
+                        <td>date:'MMMM - dd':'':'en'</td>
+                        <td>{{date | date:'MMMM - dd':'':'en'}}</td>
+                    </tr>
+                    <tr>
+                        <td>{{date}}</td>
+                        <td>date:'MMMM - dd':'':'fr'</td>
+                        <td>{{date | date:'MMMM - dd':'':'fr'}}</td>
+                    </tr>
+                    <tr>
+                        <td>{{date}}</td>
+                        <td>
+                            date:'MMMM - dd':'':'{{i18n}}'
+                            <br>
+                            <button class="btn btn-primary" (click)="i18n = 'es-MX'">Español</button>
+                            <button class="btn btn-secondary" (click)="i18n = 'en'">Inglés</button>
+                            <button class="btn btn-success" (click)="i18n = 'fr'">Francés</button>
+                        </td>
+                        <td>{{date | date:'MMMM - dd':'':i18n}}</td>
                     </tr>
                 </tbody>
             </table>
@@ -75,6 +136,27 @@
             <ul>
                 <li *ngFor="let item of array | slice:5:20">{{item}}</li>
             </ul>
+            <h4>JSON</h4>
+            <hr>
+            <div class="row mb-5">
+                <div class="col"><pre>{{heroe | json}}</pre></div>
+            </div>
+        </div>
+    </div>
+
+    <h4>Domseguro</h4>
+    <hr>
+    <div class="row">
+        <div class="col">
+            <iframe 
+                width="560"
+                height="315"
+                [src]="videoUrl | securedom"
+                title="YouTube video player"
+                frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen>
+            </iframe>
         </div>
     </div>
 </div>
+

@@ -1,18 +1,29 @@
-import { NgModule } from '@angular/core';
+import { NgModule, LOCALE_ID } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
+import { registerLocaleData } from '@angular/common';
+import localeEs from '@angular/common/locales/es-MX'
+import localeFr from '@angular/common/locales/fr';
+import { CapitalizedPipe } from './pipes/capitalized.pipe';
+import { SecuredomPipe } from './pipes/securedom.pipe'
+
+registerLocaleData(localeEs)
+registerLocaleData(localeFr)
+
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    CapitalizedPipe,
+    SecuredomPipe
   ],
   imports: [
     BrowserModule,
     AppRoutingModule
   ],
-  providers: [],
+  providers: [ { provide: LOCALE_ID, useValue: 'es-MX' }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
