@@ -129,6 +129,15 @@
                         </td>
                         <td>{{date | date:'MMMM - dd':'':i18n}}</td>
                     </tr>
+                    <tr>
+                        <td>{{name}}</td>
+                        <td>
+                            password:{{enablePassword}}
+                            <br>
+                            <button class="btn btn-outline-primary" (click)="enablePassword = !enablePassword">Enable/Disable</button>
+                        </td>
+                        <td>{{name | password:enablePassword}}</td>
+                    </tr>
                 </tbody>
             </table>
 
