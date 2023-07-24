@@ -69,6 +69,6 @@ export class HeroesService {
     }
 
     searchHeroes(searchTerm: string): Heroe[] {
-        return this.heroes.filter(heroe => heroe.name.toLowerCase().includes(searchTerm.toLowerCase()))
+        return this.heroes.map((heroe, idx) => { return {...heroe, idx } }).filter(heroe => heroe.name.toLowerCase().includes(searchTerm.toLowerCase()))
     }
 }

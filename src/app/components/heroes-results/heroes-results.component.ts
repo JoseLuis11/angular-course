@@ -12,7 +12,7 @@ export class HeroesResultsComponent implements OnInit {
     heroes: Heroe[] = [];
     searchTerm = '';
 
-    constructor(private activedRoute: ActivatedRoute, private heroesService: HeroesService) {}
+    constructor(private activedRoute: ActivatedRoute, private heroesService: HeroesService, private router: Router) {}
 
     ngOnInit(): void {
         this.activedRoute.params.subscribe(params => {
@@ -20,6 +20,10 @@ export class HeroesResultsComponent implements OnInit {
             this.searchTerm = searchTerm;
             this.heroes = this.heroesService.searchHeroes(searchTerm)
         })
+    }
+
+    seeHeroe(idx: number) {
+        this.router.navigate(['/heroes', idx])
     }
 
 }

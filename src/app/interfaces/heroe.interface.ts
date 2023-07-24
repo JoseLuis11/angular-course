@@ -1,4 +1,5 @@
 interface Heroe {
+    idx?: number;
     name: string,
     bio: string,
     img: string,
