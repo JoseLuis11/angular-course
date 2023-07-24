@@ -1,15 +1,24 @@
-<h1><small>Marvel & DC</small> Heroes</h1>
+<h1><small>Search for:</small> {{searchTerm}}</h1>
 <hr>
 
-<div class="row row-cols-1 row-cols-md-3 g-4">
-    <div class="col animated fadeIn fast" *ngFor="let heroe of heroes; let i = index">
-        <div class="card" >
-        <img [src]="heroe.img" class="card-img-top" [alt]="heroe.name">
-        <div class="card-body">
-            <h5 class="card-title">{{heroe.name}}</h5>
-            <p class="card-text">Home: {{heroe.bio}}</p>
-            <p class="card-text"><small class="text-muted">{{heroe.appearance}}</small></p>
-        </div>
+<ng-container *ngIf="heroes.length > 0">
+    <div class="row row-cols-1 row-cols-md-3 g-4">
+        <div class="col animated fadeIn fast" *ngFor="let heroe of heroes; let i = index">
+            <div class="card" >
+            <img [src]="heroe.img" class="card-img-top" [alt]="heroe.name">
+            <div class="card-body">
+                <h5 class="card-title">{{heroe.name}}</h5>
+                <p class="card-text">Home: {{heroe.bio}}</p>
+                <p class="card-text"><small class="text-muted">{{heroe.appearance}}</small></p>
+            </div>
+            </div>
         </div>
     </div>
-</div>
+</ng-container>
+<ng-container *ngIf="heroes.length === 0">
+    <div class="p-5 mb-4 bg-light rounded-3 animated fadeIn fast">
+        <div class="container-fluid py-5">
+          <h1 class="display-5 fw-bold">There are no results for the search term: <u>{{searchTerm}}</u></h1>
+        </div>
+    </div>      
+</ng-container>
