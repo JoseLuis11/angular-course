@@ -8,7 +8,10 @@ import { SearchComponent } from './components/search/search.component';
 import { ArtistComponent } from './components/artist/artist.component';
 import { NavbarComponent } from './components/shared/navbar/navbar.component';
 
-import { HttpClientModule } from '@angular/common/http'
+import { HttpClientModule } from '@angular/common/http';
+import { ValidateImageUrlPipe } from './pipes/validate-image-url.pipe';
+import { CardsComponent } from './components/shared/cards/cards.component';
+import { LoadingComponent } from './components/shared/loading/loading.component'
 
 @NgModule({
   declarations: [
@@ -16,7 +19,10 @@ import { HttpClientModule } from '@angular/common/http'
     HomeComponent,
     SearchComponent,
     ArtistComponent,
-    NavbarComponent
+    NavbarComponent,
+    ValidateImageUrlPipe,
+    CardsComponent,
+    LoadingComponent
   ],
   imports: [
     BrowserModule,
