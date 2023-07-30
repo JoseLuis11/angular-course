@@ -1,6 +1,9 @@
 <div class="row">
     <div class="col">
-        <input #searchTerm type="text" (keyup)="search(searchTerm.value)" class="form-control" placeholder="Search for Artists">
+        <div class="input-group mb-3">
+            <input type="text" [(ngModel)]="searchTerm" (keyup)="onType()" class="form-control" placeholder="Search for Artists">
+            <button class="btn btn-outline-success" (click)="clear()" type="button" id="button-addon2"><i class="fa-regular fa-circle-xmark"></i></button>
+          </div>
     </div>
 </div>
 

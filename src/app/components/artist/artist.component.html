@@ -1,1 +1,40 @@
-<p>artist works!</p>
+<app-loading *ngIf="isLoading"></app-loading>
+<div *ngIf="!isLoading" class="row animated fadeIn">
+    <div class="col-2">
+        <img [src]="artist.images | validateImageUrl" class="img-thumbnail img-circle" [alt]="artist.name + ' profile picture'">
+    </div>
+    <div class="col">
+        <h3>{{artist.name}}</h3>
+        <p>
+            <a [href]="artist.external_urls.spotify" target="_blank">
+                Go to Artist Page
+            </a>
+        </p>
+    </div>
+    <div class="col-4 text-right">
+        <button (click)="goBack()" class="btn btn-outline-success">Go back</button>
+    </div>
+</div>
+
+<div *ngIf="topTracks" class="row mt-5 animated fadeIn">
+    <div class="col">
+        <table class="table">
+            <thead>
+                <tr class="table-dark">
+                    <th>Photo</th>
+                    <th>Album</th>
+                    <th>Track Name</th>
+                    <th>Preview</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr class="table-dark" *ngFor="let track of topTracks">
+                    <td><img [src]="track.album.images | validateImageUrl" class="img-thumb" [alt]="track.album.name + ' album photo'"></td>
+                    <td class="align-middle">{{track.album.name}}</td>
+                    <td class="align-middle">{{track.name}}</td>
+                    <td><audio [src]="track.preview_url" controls></audio></td>
+                </tr>
+            </tbody>
+        </table>  
+    </div>
+</div>

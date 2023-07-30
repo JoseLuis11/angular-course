@@ -9,7 +9,7 @@ import { map } from 'rxjs/operators'
 export class SpotifyService {
 
   HEADERS = new HttpHeaders({
-    'Authorization': 'Bearer BQBpYECnxLyd2Nv6CDWAPRE29IjoNAldqwKzMxFNw29nEPJ8YYcfC4x7Dt_l5M1z8sSMNMz1ofuTSKlB2eB47nHXOEkVIw8L8pbc5UieUDyHaagedio'
+    'Authorization': 'Bearer BQAjEcHg4_dAsUQo8oljDiTsB1P-t6owV5BljJWxBZAJElI57ZQ1SuQZR0J6_rx_aGAGy3IQGX83CIngvdY28GRKfkpwT-2pr6Sdp7b7xp_Wz_9uEXo'
   });
 
   API_URL = 'https://api.spotify.com'
@@ -22,7 +22,7 @@ export class SpotifyService {
       .pipe(map((data: any) => data.albums.items));
   }
 
-  search(searchTerm: string): Observable<any> {
+  searchForArtists(searchTerm: string): Observable<any> {
     if (!searchTerm) {
       return new Observable(subscriber => {
         subscriber.next([])
@@ -30,5 +30,14 @@ export class SpotifyService {
     }
     return this.http.get(`${this.API_URL}/${this.VERSION}/search?q=${searchTerm}&type=artist`, { headers: this.HEADERS })
       .pipe(map((data: any) => data.artists.items));
+  }
+
+  getArtistById(id: string): Observable<any> {
+    return this.http.get(`${this.API_URL}/${this.VERSION}/artists/${id}`, {headers: this.HEADERS});
+  }
+
+  getArtistTopTracksById(id: string): Observable<any> {
+    return this.http.get(`${this.API_URL}/${this.VERSION}/artists/${id}/top-tracks?country=MX`, {headers: this.HEADERS})
+        .pipe(map((data: any) => data.tracks));
   }
 }
