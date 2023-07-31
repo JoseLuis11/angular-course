@@ -29,10 +29,18 @@
             </thead>
             <tbody>
                 <tr class="table-dark" *ngFor="let track of topTracks">
-                    <td><img [src]="track.album.images | validateImageUrl" class="img-thumb" [alt]="track.album.name + ' album photo'"></td>
+                    <td class="align-middle"><img [src]="track.album.images | validateImageUrl" class="img-thumb" [alt]="track.album.name + ' album photo'"></td>
                     <td class="align-middle">{{track.album.name}}</td>
                     <td class="align-middle">{{track.name}}</td>
-                    <td><audio [src]="track.preview_url" controls></audio></td>
+                    <td class="align-middle">
+                        <iframe width="100%" height="100" [title]="track.name"
+                        style="border-radius: 12px"
+                        frameborder="0"
+                        allowfullscreen
+                        allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+                        [src]="track.id | secureDom:'https://open.spotify.com/embed/track/'">
+                        </iframe>
+                    </td>
                 </tr>
             </tbody>
         </table>  

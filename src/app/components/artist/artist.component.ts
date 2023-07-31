@@ -1,5 +1,6 @@
 import { Location } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
+import { DomSanitizer } from '@angular/platform-browser';
 import { ActivatedRoute } from '@angular/router';
 import { SpotifyService } from 'src/app/services/spotify.service';
 
@@ -13,7 +14,7 @@ export class ArtistComponent implements OnInit {
     topTracks: any[] = []
     isLoading = false;
 
-    constructor(private activatedRoute: ActivatedRoute, private spotifyService: SpotifyService, private location: Location) {}
+    constructor(private activatedRoute: ActivatedRoute, private spotifyService: SpotifyService, private location: Location, private sanitizer: DomSanitizer) {}
 
     ngOnInit(): void {
         this.activatedRoute.params.subscribe(({id}) => {
@@ -41,5 +42,4 @@ export class ArtistComponent implements OnInit {
     goBack(): void {
         this.location.back();
     }
-
 }

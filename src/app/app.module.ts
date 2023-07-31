@@ -13,6 +13,7 @@ import { ValidateImageUrlPipe } from './pipes/validate-image-url.pipe';
 import { CardsComponent } from './components/shared/cards/cards.component';
 import { LoadingComponent } from './components/shared/loading/loading.component'
 import { FormsModule } from '@angular/forms';
+import { SecureDomPipe } from './pipes/domseguro.pipe';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { FormsModule } from '@angular/forms';
     NavbarComponent,
     ValidateImageUrlPipe,
     CardsComponent,
-    LoadingComponent
+    LoadingComponent,
+    SecureDomPipe
   ],
   imports: [
     BrowserModule,

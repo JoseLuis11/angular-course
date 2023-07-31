@@ -9,7 +9,7 @@ import { map } from 'rxjs/operators'
 export class SpotifyService {
 
   HEADERS = new HttpHeaders({
-    'Authorization': 'Bearer BQAjEcHg4_dAsUQo8oljDiTsB1P-t6owV5BljJWxBZAJElI57ZQ1SuQZR0J6_rx_aGAGy3IQGX83CIngvdY28GRKfkpwT-2pr6Sdp7b7xp_Wz_9uEXo'
+    'Authorization': 'Bearer BQBJAO1juVYOXWk1swUvm7IFpvi1gZliZreSxJLbk3c-gmRPnTiUzZb-mHWMEGVx8XSz_QF9Wnk5r994ukRAUcg-JBa49PLW7AdkGasEGn3WK_HS9Qo'
   });
 
   API_URL = 'https://api.spotify.com'

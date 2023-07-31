@@ -1,2 +1,8 @@
 <app-loading *ngIf="isLoading"></app-loading>
+
+<div *ngIf="error.exists" class="alert alert-danger animated fadeIn">
+    <h3>Error</h3>
+    <p>{{error.message}}</p>
+</div>
+
 <app-cards *ngIf="!isLoading" [items]="newReleases"></app-cards>
