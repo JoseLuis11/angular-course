@@ -12,18 +12,21 @@
           <li class="nav-item">
             <a class="nav-link" [routerLink]="'prices'" routerLinkActive="active">Prices</a>
           </li>
-          <li class="nav-item">
+          <li class="nav-item" *ngIf="isAuthenticated">
             <a class="nav-link" [routerLink]="'protected'" routerLinkActive="active">Protected</a>
           </li>
         </ul>
-        <span class="navbar-text">
-          <ng-container *ngIf="auth.isAuthenticated$ | async; else loggedOut">
-            <button  class="btn btn-outline-danger" (click)="auth.logout()">Logout</button>
-          </ng-container>
-          <ng-template #loggedOut>
-            <button class="btn btn-outline-success" (click)="auth.loginWithRedirect()">Log in</button>
-          </ng-template>
-        </span>
+        <div class="row">
+            <span class="col-12 navbar-text">
+                <ng-container *ngIf="isAuthenticated else loggedOut">
+                    <button  class="btn btn-outline-danger" (click)="auth.logout()">Logout</button>
+                </ng-container>
+                <ng-template #loggedOut>
+                    <button class="btn btn-outline-success" (click)="auth.loginWithRedirect()">Log in</button>
+                </ng-template>
+            </span>
+        </div>
+        
       </div>
     </div>
 </nav>
